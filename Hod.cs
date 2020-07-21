@@ -9,7 +9,7 @@ namespace PokerTest
 {
     class Hod
     {
-        public int Who,bankBot=1000,BankGamer = 1000,RateBot,RateGamer,BotHod,HodGamer,count = 0;
+        public int Who,bankBot=1000,BankGamer = 1000,RateBot,RateGamer,allRate,BotHod,HodGamer,count = 0;
 
         public async void FactorialAsync(Count count)
         {
@@ -91,12 +91,16 @@ namespace PokerTest
                             if (Who == 1) Who = 0; else Who = 1;
                             gamerOne = 0; gamerTwo = 0;
                             count++;
+
+                            allRate += RateBot + RateGamer;
+                            RateGamer = 0;
+                            RateBot = 0;
                             break;
                         }
                         else
                         {
                             gamerOne = 0;
-                            if (Who == 1) Who = 0; else Who = 1;
+                            if (Who == (int)WhoGoes.bot) Who = (int)WhoGoes.gamer; else Who = (int)WhoGoes.bot;
                             //Если условия не удволетворяют для продолжение игры то, мы меняем
                             GameStart();
                         }

@@ -40,7 +40,7 @@
             this.richTextBox7 = new System.Windows.Forms.RichTextBox();
             this.richTextBox8 = new System.Windows.Forms.RichTextBox();
             this.richTextBox9 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox10 = new System.Windows.Forms.RichTextBox();
+            this.WindowsEvent = new System.Windows.Forms.RichTextBox();
             this.Start = new System.Windows.Forms.Button();
             this.BankGamer = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -61,6 +61,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.VisualBankBot = new System.Windows.Forms.RichTextBox();
+            this.VisualWhoGo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.RateHod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RateVisualBot)).BeginInit();
             this.SuspendLayout();
@@ -167,13 +168,14 @@
             this.richTextBox9.TabIndex = 11;
             this.richTextBox9.Text = "";
             // 
-            // richTextBox10
+            // WindowsEvent
             // 
-            this.richTextBox10.Location = new System.Drawing.Point(260, 35);
-            this.richTextBox10.Name = "richTextBox10";
-            this.richTextBox10.Size = new System.Drawing.Size(136, 179);
-            this.richTextBox10.TabIndex = 13;
-            this.richTextBox10.Text = "";
+            this.WindowsEvent.Location = new System.Drawing.Point(260, 35);
+            this.WindowsEvent.Name = "WindowsEvent";
+            this.WindowsEvent.Size = new System.Drawing.Size(136, 179);
+            this.WindowsEvent.TabIndex = 13;
+            this.WindowsEvent.Text = "";
+            this.WindowsEvent.TextChanged += new System.EventHandler(this.WindowsEvent_TextChanged);
             // 
             // Start
             // 
@@ -287,9 +289,19 @@
             // RateHod
             // 
             this.RateHod.Location = new System.Drawing.Point(43, 367);
+            this.RateHod.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.RateHod.Name = "RateHod";
             this.RateHod.Size = new System.Drawing.Size(70, 20);
             this.RateHod.TabIndex = 27;
+            this.RateHod.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // Botrise
             // 
@@ -297,7 +309,7 @@
             this.Botrise.Name = "Botrise";
             this.Botrise.Size = new System.Drawing.Size(62, 27);
             this.Botrise.TabIndex = 30;
-            this.Botrise.Text = "рейз";
+            this.Botrise.Text = "Rise";
             this.Botrise.UseVisualStyleBackColor = true;
             this.Botrise.Click += new System.EventHandler(this.Botrise_Click);
             // 
@@ -307,7 +319,7 @@
             this.Botcheck.Name = "Botcheck";
             this.Botcheck.Size = new System.Drawing.Size(62, 27);
             this.Botcheck.TabIndex = 29;
-            this.Botcheck.Text = "чек";
+            this.Botcheck.Text = "Check";
             this.Botcheck.UseVisualStyleBackColor = true;
             this.Botcheck.Click += new System.EventHandler(this.Botcheck_Click);
             // 
@@ -317,16 +329,26 @@
             this.Botfold.Name = "Botfold";
             this.Botfold.Size = new System.Drawing.Size(67, 27);
             this.Botfold.TabIndex = 28;
-            this.Botfold.Text = "Фолд";
+            this.Botfold.Text = "Fold";
             this.Botfold.UseVisualStyleBackColor = true;
             this.Botfold.Click += new System.EventHandler(this.Botfold_Click);
             // 
             // RateVisualBot
             // 
             this.RateVisualBot.Location = new System.Drawing.Point(50, 117);
+            this.RateVisualBot.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.RateVisualBot.Name = "RateVisualBot";
             this.RateVisualBot.Size = new System.Drawing.Size(70, 20);
             this.RateVisualBot.TabIndex = 34;
+            this.RateVisualBot.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.RateVisualBot.ValueChanged += new System.EventHandler(this.RateVisualBot_ValueChanged);
             // 
             // label3
@@ -356,11 +378,20 @@
             this.VisualBankBot.Text = "";
             this.VisualBankBot.TextChanged += new System.EventHandler(this.VisualBankBot_TextChanged);
             // 
+            // VisualWhoGo
+            // 
+            this.VisualWhoGo.AutoSize = true;
+            this.VisualWhoGo.Location = new System.Drawing.Point(257, 217);
+            this.VisualWhoGo.Name = "VisualWhoGo";
+            this.VisualWhoGo.Size = new System.Drawing.Size(0, 13);
+            this.VisualWhoGo.TabIndex = 35;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(441, 413);
+            this.Controls.Add(this.VisualWhoGo);
             this.Controls.Add(this.RateVisualBot);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -381,7 +412,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BankGamer);
             this.Controls.Add(this.Start);
-            this.Controls.Add(this.richTextBox10);
+            this.Controls.Add(this.WindowsEvent);
             this.Controls.Add(this.richTextBox8);
             this.Controls.Add(this.richTextBox9);
             this.Controls.Add(this.richTextBox6);
@@ -418,7 +449,7 @@
         private System.Windows.Forms.RichTextBox richTextBox7;
         private System.Windows.Forms.RichTextBox richTextBox8;
         private System.Windows.Forms.RichTextBox richTextBox9;
-        private System.Windows.Forms.RichTextBox richTextBox10;
+        private System.Windows.Forms.RichTextBox WindowsEvent;
         private System.Windows.Forms.Button Start;
         private System.Windows.Forms.RichTextBox BankGamer;
         private System.Windows.Forms.Label label1;
@@ -439,6 +470,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox VisualBankBot;
+        private System.Windows.Forms.Label VisualWhoGo;
     }
 }
 
