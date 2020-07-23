@@ -181,7 +181,7 @@
             // 
             this.WindowsEvent.Location = new System.Drawing.Point(260, 18);
             this.WindowsEvent.Name = "WindowsEvent";
-            this.WindowsEvent.Size = new System.Drawing.Size(169, 212);
+            this.WindowsEvent.Size = new System.Drawing.Size(169, 217);
             this.WindowsEvent.TabIndex = 39;
             this.WindowsEvent.Text = "";
             // 
@@ -376,7 +376,7 @@
             // VisualWhoGo
             // 
             this.VisualWhoGo.AutoSize = true;
-            this.VisualWhoGo.Location = new System.Drawing.Point(257, 217);
+            this.VisualWhoGo.Location = new System.Drawing.Point(359, 241);
             this.VisualWhoGo.Name = "VisualWhoGo";
             this.VisualWhoGo.Size = new System.Drawing.Size(0, 13);
             this.VisualWhoGo.TabIndex = 35;
@@ -393,7 +393,7 @@
             // SeniorMap
             // 
             this.SeniorMap.AutoSize = true;
-            this.SeniorMap.Location = new System.Drawing.Point(257, 293);
+            this.SeniorMap.Location = new System.Drawing.Point(257, 312);
             this.SeniorMap.Name = "SeniorMap";
             this.SeniorMap.Size = new System.Drawing.Size(0, 13);
             this.SeniorMap.TabIndex = 41;
@@ -401,7 +401,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(295, 327);
+            this.label6.Location = new System.Drawing.Point(257, 326);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 42;
@@ -410,7 +410,7 @@
             // PowerBotLabel
             // 
             this.PowerBotLabel.AutoSize = true;
-            this.PowerBotLabel.Location = new System.Drawing.Point(300, 340);
+            this.PowerBotLabel.Location = new System.Drawing.Point(262, 339);
             this.PowerBotLabel.Name = "PowerBotLabel";
             this.PowerBotLabel.Size = new System.Drawing.Size(13, 13);
             this.PowerBotLabel.TabIndex = 43;
@@ -419,7 +419,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(359, 327);
+            this.label8.Location = new System.Drawing.Point(321, 326);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 13);
             this.label8.TabIndex = 44;
@@ -428,7 +428,7 @@
             // PowerGamerLabel
             // 
             this.PowerGamerLabel.AutoSize = true;
-            this.PowerGamerLabel.Location = new System.Drawing.Point(376, 340);
+            this.PowerGamerLabel.Location = new System.Drawing.Point(338, 339);
             this.PowerGamerLabel.Name = "PowerGamerLabel";
             this.PowerGamerLabel.Size = new System.Drawing.Size(13, 13);
             this.PowerGamerLabel.TabIndex = 45;

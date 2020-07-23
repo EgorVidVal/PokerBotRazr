@@ -22,7 +22,7 @@ namespace PokerTest
         //Ход игры
         Hod hod = new Hod();
 
-        int GameWho = 0;
+        
         
 
         public Form1() => InitializeComponent();
@@ -31,7 +31,7 @@ namespace PokerTest
         {
             if ((int)RateHod.Value > hod.RateBot)
             {
-                GameWho = 1;
+                hod.GameWho = 1;
                 hod.HodGamer = 3;
                 hod.BankGamer = hod.BankGamer - (int)RateHod.Value;
                 hod.RateGamer = (int)RateHod.Value;
@@ -45,7 +45,7 @@ namespace PokerTest
         {
            
             hod.HodGamer = 2;
-            GameWho = 1;
+            hod.GameWho = 1;
             if (Check.Text == $"Koll {hod.RateBot}")
             {
                 hod.BankGamer -= hod.RateBot - hod.RateGamer;
@@ -55,15 +55,15 @@ namespace PokerTest
 
         private void Fold_Click(object sender, EventArgs e)
         {
-            GameWho = 1;
+            hod.GameWho = 1;
             hod.HodGamer = 1;
         }
 
         private void Start_Click(object sender, EventArgs e)
         {
             hod.FactorialAsync((Count)hod.count);
-            if (hod.Who == 0) GameWho = 0;
-            else GameWho = 1;
+            if (hod.Who == 0) hod.GameWho = 0;
+            else hod.GameWho = 1;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -96,8 +96,7 @@ namespace PokerTest
                 handTable = new MapHandTable(rMap.ReadyMapForGame());
 
                 WindowsEvent.Text = hod.EndGame(hod.powerBot, hod.powerGamer);
-
-
+                hod.allRate = 0;
                 hod.count = 0;
             }
 
@@ -112,7 +111,7 @@ namespace PokerTest
             //Меняет кнопку чек на кнопку колл
             if (hod.BotHod == 3)
             {
-                Check.Text = $"Koll {hod.RateBot}";
+                Check.Text = $"Koll {hod.RateBot - hod.RateGamer}";
                 RateHod.Minimum = hod.RateBot;
             }                        
             else
@@ -167,18 +166,18 @@ namespace PokerTest
            
             if (hod.HodGamer == 3)
             {
-                Botcheck.Text = $"Koll {hod.RateGamer}";
+                Botcheck.Text = $"Koll {hod.RateGamer - hod.RateBot}";
                 RateVisualBot.Minimum = hod.RateGamer;
             }     
             else
                 Botcheck.Text = "Check";
 
-            if (GameWho == 1) VisualWhoGo.Text = "Ходит бот"; else VisualWhoGo.Text = "Ходит Игрок";
+            if (hod.GameWho == 1) VisualWhoGo.Text = "Ходит бот"; else VisualWhoGo.Text = "Ходит Игрок";
         }
 
         private void Botrise_Click(object sender, EventArgs e)
         {
-            GameWho = 0;
+            hod.GameWho = 0;
             hod.BotHod = 3;
             hod.bankBot = hod.bankBot - (int)RateVisualBot.Value;
             hod.RateBot = (int)RateVisualBot.Value;
@@ -186,18 +185,21 @@ namespace PokerTest
 
         private void Botcheck_Click(object sender, EventArgs e)
         {
-            GameWho = 0;
+            hod.GameWho = 0;
             hod.BotHod = 2;
-            if (Botcheck.Text == $"Koll {hod.RateGamer}")
+            if (Botcheck.Text == $"Koll {hod.RateGamer - hod.RateBot}")
             {
-                hod.bankBot -= hod.RateGamer;
+
+                hod.bankBot -= hod.RateGamer - hod.RateBot;
                 hod.RateBot = hod.RateGamer;
             }
+            
+          
         }
 
         private void Botfold_Click(object sender, EventArgs e)
         {
-            GameWho = 0;
+            hod.GameWho = 0;
             hod.BotHod = 1;
         }
 
