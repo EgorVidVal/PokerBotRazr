@@ -39,6 +39,7 @@ namespace PokerTest
             
         }
 
+        //Сила руки
         public int CombPower()
         {
             PowerMap power = new PowerMap();
@@ -46,6 +47,7 @@ namespace PokerTest
             Three, Street, Flash, Full_House, Kare, StrinFlash);
 
         }
+        //Старшая комбинация 
         public int[] CombSenior()
         {
             PowerMap power = new PowerMap();

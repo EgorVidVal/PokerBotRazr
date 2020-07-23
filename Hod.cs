@@ -10,6 +10,10 @@ namespace PokerTest
     class Hod
     {
         public int Who,bankBot=1000,BankGamer = 1000,RateBot,RateGamer,allRate,BotHod,HodGamer,count = 0;
+        public int powerBot, powerGamer = 0;
+        public int[] mapBot = new int[0];
+        public int[] mapGamer = new int[0];
+        public int[] mapTable = new int[0];
 
         public async void FactorialAsync(Count count)
         {
@@ -37,7 +41,6 @@ namespace PokerTest
                         break;
                 }
             }
-            
         }
 
         public void GameStart()
@@ -45,7 +48,7 @@ namespace PokerTest
             if (Who == (int)WhoGoes.gamer)
             {
                 Console.WriteLine("Ходит игрок");
-                GameRes(ref HodGamer, ref BotHod);
+                GameRes(ref HodGamer, ref BotHod,ref powerGamer,ref powerBot);
             }
             else if (Who == (int)WhoGoes.bot)
             {
@@ -53,41 +56,59 @@ namespace PokerTest
                 //Bot b = new Bot();
 
                 //BotHod = b.BotStart(HodGamer);
-                GameRes(ref BotHod, ref HodGamer);
+                GameRes(ref BotHod, ref HodGamer, ref powerBot, ref powerGamer);
             }
         }
         Bot b = new Bot();
         //Ход игры
-        public void GameRes(ref int gamerOne,ref int gamerTwo)
+        public void GameRes(ref int gamerOne,ref int gamerTwo, ref int powerGamerOne ,ref int powerGamerTwo)
         {
             while (true)
             {
                 Thread.Sleep(2000);
                 //Ожидание действие игрока
-                Console.WriteLine("Ходит первый {0}", gamerOne);
-                Console.WriteLine("Ходит второй {0}", gamerTwo);
-                if (Who == (int)WhoGoes.bot && gamerOne == 0)
-                {
-                    //gamerOne = b.BotStart(HodGamer);
-                }
-
+                //if (Who == (int)WhoGoes.bot && gamerOne == 0)
+                //{
+                //    //gamerOne = b.BotStart(HodGamer);
+                //}
+                Console.WriteLine(allRate);
                 if (gamerOne != 0)
                 {
+                    if(gamerOne == 1)
+                    {
+                        powerGamerOne = 0;
+                        count = 4;
+                        gamerOne = 0; gamerTwo = 0;
+                        allRate += RateBot + RateGamer;
+                        break;
+                    }
+
+
                     if (Who == (int)WhoGoes.gamer)
                     {
                         //gamerTwo = b.BotStart(HodGamer);
                     }
-                    
                     if (gamerTwo != 0)
                     {
+                        if (gamerTwo == 1)
+                        {
+                            powerGamerTwo = 0;
+                            count = 4;
+                            gamerOne = 0; gamerTwo = 0;
+                            allRate += RateBot + RateGamer;
+                            break;
+                        }
+
                         //Проверяем продожитсья ли игра после решения.
                         bool checking = GameHod(ref gamerOne,ref gamerTwo);
 
+                        //Если условия верны для продолжение игры
                         if (checking == true)
                         {
                             Console.WriteLine("Все ок получилось");
+                            
                             //Складываем все ставки и добавляем в общие
-                            //преходим на флоп
+                            //преходим на следующий шаг
                             if (Who == 1) Who = 0; else Who = 1;
                             gamerOne = 0; gamerTwo = 0;
                             count++;
@@ -95,10 +116,12 @@ namespace PokerTest
                             allRate += RateBot + RateGamer;
                             RateGamer = 0;
                             RateBot = 0;
+                           
                             break;
                         }
                         else
                         {
+                            Console.WriteLine("Не получилось");
                             gamerOne = 0;
                             if (Who == (int)WhoGoes.bot) Who = (int)WhoGoes.gamer; else Who = (int)WhoGoes.bot;
                             //Если условия не удволетворяют для продолжение игры то, мы меняем
@@ -106,9 +129,13 @@ namespace PokerTest
                         }
                     }
                 }
+
+                powerBot = new ReadyPower(mapBot.Concat(mapTable).ToArray()).CombPower();
+                powerGamer = new ReadyPower(mapGamer.Concat(mapTable).ToArray()).CombPower();
             }
         }
 
+        
         //Ход игры, можно ли продолжать.
         public bool GameHod(ref int gamerOne,ref int gamerTwo)
         {
@@ -135,7 +162,33 @@ namespace PokerTest
             }
             return false;
         }
+        
+        public string EndGame(int Bot,int Gamer)
+        {
+            if(count == 4)
+            {
+                allRate = 0;
 
+                if (Bot > Gamer)
+                {
+                    bankBot += allRate;
+                    return "Выиграл бот";
+                }
+                else if (Bot == Gamer)
+                {
+                    bankBot += allRate / 2;
+                    BankGamer += allRate / 2;
+                    return "Ничья";
+                }
+                else
+                {
+                    BankGamer += allRate;
+                    return "Выиграл игрок";
+                }
+
+            }
+            return "";
+        }
     }
 
     enum Dey

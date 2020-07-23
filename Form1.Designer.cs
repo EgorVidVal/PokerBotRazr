@@ -36,10 +36,10 @@
             this.Flop3 = new System.Windows.Forms.RichTextBox();
             this.Tern = new System.Windows.Forms.RichTextBox();
             this.River = new System.Windows.Forms.RichTextBox();
-            this.richTextBox6 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox7 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox8 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox9 = new System.Windows.Forms.RichTextBox();
+            this.HandGamer2 = new System.Windows.Forms.RichTextBox();
+            this.HandGamer1 = new System.Windows.Forms.RichTextBox();
+            this.HandBot2 = new System.Windows.Forms.RichTextBox();
+            this.HandBot1 = new System.Windows.Forms.RichTextBox();
             this.WindowsEvent = new System.Windows.Forms.RichTextBox();
             this.Start = new System.Windows.Forms.Button();
             this.BankGamer = new System.Windows.Forms.RichTextBox();
@@ -62,6 +62,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.VisualBankBot = new System.Windows.Forms.RichTextBox();
             this.VisualWhoGo = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.SeniorMap = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.PowerBotLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.PowerGamerLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.RateHod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RateVisualBot)).BeginInit();
             this.SuspendLayout();
@@ -136,46 +142,46 @@
             this.River.TabIndex = 8;
             this.River.Text = "";
             // 
-            // richTextBox6
+            // HandGamer2
             // 
-            this.richTextBox6.Location = new System.Drawing.Point(138, 278);
-            this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.Size = new System.Drawing.Size(32, 28);
-            this.richTextBox6.TabIndex = 10;
-            this.richTextBox6.Text = "";
+            this.HandGamer2.Location = new System.Drawing.Point(138, 278);
+            this.HandGamer2.Name = "HandGamer2";
+            this.HandGamer2.Size = new System.Drawing.Size(32, 28);
+            this.HandGamer2.TabIndex = 10;
+            this.HandGamer2.Text = "";
             // 
-            // richTextBox7
+            // HandGamer1
             // 
-            this.richTextBox7.Location = new System.Drawing.Point(100, 278);
-            this.richTextBox7.Name = "richTextBox7";
-            this.richTextBox7.Size = new System.Drawing.Size(32, 28);
-            this.richTextBox7.TabIndex = 9;
-            this.richTextBox7.Text = "";
+            this.HandGamer1.Location = new System.Drawing.Point(100, 278);
+            this.HandGamer1.Name = "HandGamer1";
+            this.HandGamer1.Size = new System.Drawing.Size(32, 28);
+            this.HandGamer1.TabIndex = 9;
+            this.HandGamer1.Text = "";
+            this.HandGamer1.TextChanged += new System.EventHandler(this.HandGamer1_TextChanged);
             // 
-            // richTextBox8
+            // HandBot2
             // 
-            this.richTextBox8.Location = new System.Drawing.Point(143, 160);
-            this.richTextBox8.Name = "richTextBox8";
-            this.richTextBox8.Size = new System.Drawing.Size(32, 28);
-            this.richTextBox8.TabIndex = 12;
-            this.richTextBox8.Text = "";
+            this.HandBot2.Location = new System.Drawing.Point(143, 160);
+            this.HandBot2.Name = "HandBot2";
+            this.HandBot2.Size = new System.Drawing.Size(32, 28);
+            this.HandBot2.TabIndex = 12;
+            this.HandBot2.Text = "";
             // 
-            // richTextBox9
+            // HandBot1
             // 
-            this.richTextBox9.Location = new System.Drawing.Point(105, 160);
-            this.richTextBox9.Name = "richTextBox9";
-            this.richTextBox9.Size = new System.Drawing.Size(32, 28);
-            this.richTextBox9.TabIndex = 11;
-            this.richTextBox9.Text = "";
+            this.HandBot1.Location = new System.Drawing.Point(105, 160);
+            this.HandBot1.Name = "HandBot1";
+            this.HandBot1.Size = new System.Drawing.Size(32, 28);
+            this.HandBot1.TabIndex = 11;
+            this.HandBot1.Text = "";
             // 
             // WindowsEvent
             // 
-            this.WindowsEvent.Location = new System.Drawing.Point(260, 35);
+            this.WindowsEvent.Location = new System.Drawing.Point(260, 18);
             this.WindowsEvent.Name = "WindowsEvent";
-            this.WindowsEvent.Size = new System.Drawing.Size(136, 179);
-            this.WindowsEvent.TabIndex = 13;
+            this.WindowsEvent.Size = new System.Drawing.Size(169, 212);
+            this.WindowsEvent.TabIndex = 39;
             this.WindowsEvent.Text = "";
-            this.WindowsEvent.TextChanged += new System.EventHandler(this.WindowsEvent_TextChanged);
             // 
             // Start
             // 
@@ -189,12 +195,11 @@
             // 
             // BankGamer
             // 
-            this.BankGamer.Location = new System.Drawing.Point(119, 367);
+            this.BankGamer.Location = new System.Drawing.Point(133, 367);
             this.BankGamer.Name = "BankGamer";
-            this.BankGamer.Size = new System.Drawing.Size(101, 21);
-            this.BankGamer.TabIndex = 16;
+            this.BankGamer.Size = new System.Drawing.Size(78, 26);
+            this.BankGamer.TabIndex = 38;
             this.BankGamer.Text = "";
-            this.BankGamer.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // label1
             // 
@@ -335,21 +340,10 @@
             // 
             // RateVisualBot
             // 
-            this.RateVisualBot.Location = new System.Drawing.Point(50, 117);
-            this.RateVisualBot.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
+            this.RateVisualBot.Location = new System.Drawing.Point(43, 118);
             this.RateVisualBot.Name = "RateVisualBot";
-            this.RateVisualBot.Size = new System.Drawing.Size(70, 20);
-            this.RateVisualBot.TabIndex = 34;
-            this.RateVisualBot.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.RateVisualBot.ValueChanged += new System.EventHandler(this.RateVisualBot_ValueChanged);
+            this.RateVisualBot.Size = new System.Drawing.Size(89, 20);
+            this.RateVisualBot.TabIndex = 36;
             // 
             // label3
             // 
@@ -371,12 +365,11 @@
             // 
             // VisualBankBot
             // 
-            this.VisualBankBot.Location = new System.Drawing.Point(126, 117);
+            this.VisualBankBot.Location = new System.Drawing.Point(146, 117);
             this.VisualBankBot.Name = "VisualBankBot";
-            this.VisualBankBot.Size = new System.Drawing.Size(101, 21);
-            this.VisualBankBot.TabIndex = 31;
+            this.VisualBankBot.Size = new System.Drawing.Size(89, 27);
+            this.VisualBankBot.TabIndex = 37;
             this.VisualBankBot.Text = "";
-            this.VisualBankBot.TextChanged += new System.EventHandler(this.VisualBankBot_TextChanged);
             // 
             // VisualWhoGo
             // 
@@ -386,11 +379,70 @@
             this.VisualWhoGo.Size = new System.Drawing.Size(0, 13);
             this.VisualWhoGo.TabIndex = 35;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(257, 278);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(116, 13);
+            this.label5.TabIndex = 40;
+            this.label5.Text = "Страшая комбинация";
+            // 
+            // SeniorMap
+            // 
+            this.SeniorMap.AutoSize = true;
+            this.SeniorMap.Location = new System.Drawing.Point(257, 293);
+            this.SeniorMap.Name = "SeniorMap";
+            this.SeniorMap.Size = new System.Drawing.Size(0, 13);
+            this.SeniorMap.TabIndex = 41;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(295, 327);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 13);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "Сила бота";
+            // 
+            // PowerBotLabel
+            // 
+            this.PowerBotLabel.AutoSize = true;
+            this.PowerBotLabel.Location = new System.Drawing.Point(300, 340);
+            this.PowerBotLabel.Name = "PowerBotLabel";
+            this.PowerBotLabel.Size = new System.Drawing.Size(13, 13);
+            this.PowerBotLabel.TabIndex = 43;
+            this.PowerBotLabel.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(359, 327);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(70, 13);
+            this.label8.TabIndex = 44;
+            this.label8.Text = "Сила игрока";
+            // 
+            // PowerGamerLabel
+            // 
+            this.PowerGamerLabel.AutoSize = true;
+            this.PowerGamerLabel.Location = new System.Drawing.Point(376, 340);
+            this.PowerGamerLabel.Name = "PowerGamerLabel";
+            this.PowerGamerLabel.Size = new System.Drawing.Size(13, 13);
+            this.PowerGamerLabel.TabIndex = 45;
+            this.PowerGamerLabel.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(441, 413);
+            this.Controls.Add(this.PowerGamerLabel);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.PowerBotLabel);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.SeniorMap);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.VisualWhoGo);
             this.Controls.Add(this.RateVisualBot);
             this.Controls.Add(this.label3);
@@ -413,10 +465,10 @@
             this.Controls.Add(this.BankGamer);
             this.Controls.Add(this.Start);
             this.Controls.Add(this.WindowsEvent);
-            this.Controls.Add(this.richTextBox8);
-            this.Controls.Add(this.richTextBox9);
-            this.Controls.Add(this.richTextBox6);
-            this.Controls.Add(this.richTextBox7);
+            this.Controls.Add(this.HandBot2);
+            this.Controls.Add(this.HandBot1);
+            this.Controls.Add(this.HandGamer2);
+            this.Controls.Add(this.HandGamer1);
             this.Controls.Add(this.River);
             this.Controls.Add(this.Tern);
             this.Controls.Add(this.Flop3);
@@ -445,10 +497,10 @@
         private System.Windows.Forms.RichTextBox Flop3;
         private System.Windows.Forms.RichTextBox Tern;
         private System.Windows.Forms.RichTextBox River;
-        private System.Windows.Forms.RichTextBox richTextBox6;
-        private System.Windows.Forms.RichTextBox richTextBox7;
-        private System.Windows.Forms.RichTextBox richTextBox8;
-        private System.Windows.Forms.RichTextBox richTextBox9;
+        private System.Windows.Forms.RichTextBox HandGamer2;
+        private System.Windows.Forms.RichTextBox HandGamer1;
+        private System.Windows.Forms.RichTextBox HandBot2;
+        private System.Windows.Forms.RichTextBox HandBot1;
         private System.Windows.Forms.RichTextBox WindowsEvent;
         private System.Windows.Forms.Button Start;
         private System.Windows.Forms.RichTextBox BankGamer;
@@ -471,6 +523,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox VisualBankBot;
         private System.Windows.Forms.Label VisualWhoGo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label SeniorMap;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label PowerBotLabel;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label PowerGamerLabel;
     }
 }
 
