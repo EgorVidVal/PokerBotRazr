@@ -42,21 +42,45 @@ namespace PokerTest
                 }
             }
         }
+        int firstRate = 5;
 
         public void GameStart()
         {
+            Console.WriteLine(firstRate);
+            Console.WriteLine(count);
             if (Who == (int)WhoGoes.gamer)
             {
-                Console.WriteLine("Ходит игрок");
+                if (firstRate != count)
+                {
+                    BankGamer -= 10;
+                    bankBot -= 5;
+                    allRate += 15;
+
+                    RateBot = 5;
+                    RateGamer = 10;
+                    firstRate = count;
+                }
                 GameRes(ref HodGamer, ref BotHod,ref powerGamer,ref powerBot);
+                
+             
             }
             else if (Who == (int)WhoGoes.bot)
             {
                 Console.WriteLine("Ходит Бот");
                 //Bot b = new Bot();
-
                 //BotHod = b.BotStart(HodGamer);
+                if (firstRate != count)
+                {
+                    BankGamer -= 5;
+                    bankBot -= 10;
+                    allRate += 15;
+
+                    RateBot = 10;
+                    RateGamer = 5;
+                    firstRate = count;
+                }
                 GameRes(ref BotHod, ref HodGamer, ref powerBot, ref powerGamer);
+        
             }
         }
         Bot b = new Bot();
@@ -65,7 +89,7 @@ namespace PokerTest
         {
             while (true)
             {
-                Thread.Sleep(2000);
+                Thread.Sleep(200);
                 //Ожидание действие игрока
                 //if (Who == (int)WhoGoes.bot && gamerOne == 0)
                 //{

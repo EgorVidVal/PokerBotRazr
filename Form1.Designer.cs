@@ -68,13 +68,15 @@
             this.PowerBotLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.PowerGamerLabel = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.RateBotNumber = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.RateHod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RateVisualBot)).BeginInit();
             this.SuspendLayout();
             // 
             // Fold
             // 
-            this.Fold.Location = new System.Drawing.Point(24, 312);
+            this.Fold.Location = new System.Drawing.Point(24, 326);
             this.Fold.Name = "Fold";
             this.Fold.Size = new System.Drawing.Size(67, 27);
             this.Fold.TabIndex = 0;
@@ -84,7 +86,7 @@
             // 
             // Check
             // 
-            this.Check.Location = new System.Drawing.Point(97, 312);
+            this.Check.Location = new System.Drawing.Point(97, 326);
             this.Check.Name = "Check";
             this.Check.Size = new System.Drawing.Size(62, 27);
             this.Check.TabIndex = 1;
@@ -94,7 +96,7 @@
             // 
             // Rise
             // 
-            this.Rise.Location = new System.Drawing.Point(165, 312);
+            this.Rise.Location = new System.Drawing.Point(165, 326);
             this.Rise.Name = "Rise";
             this.Rise.Size = new System.Drawing.Size(62, 27);
             this.Rise.TabIndex = 2;
@@ -144,7 +146,7 @@
             // 
             // HandGamer2
             // 
-            this.HandGamer2.Location = new System.Drawing.Point(138, 278);
+            this.HandGamer2.Location = new System.Drawing.Point(138, 292);
             this.HandGamer2.Name = "HandGamer2";
             this.HandGamer2.Size = new System.Drawing.Size(32, 28);
             this.HandGamer2.TabIndex = 10;
@@ -152,7 +154,7 @@
             // 
             // HandGamer1
             // 
-            this.HandGamer1.Location = new System.Drawing.Point(100, 278);
+            this.HandGamer1.Location = new System.Drawing.Point(100, 292);
             this.HandGamer1.Name = "HandGamer1";
             this.HandGamer1.Size = new System.Drawing.Size(32, 28);
             this.HandGamer1.TabIndex = 9;
@@ -195,7 +197,7 @@
             // 
             // BankGamer
             // 
-            this.BankGamer.Location = new System.Drawing.Point(133, 367);
+            this.BankGamer.Location = new System.Drawing.Point(133, 381);
             this.BankGamer.Name = "BankGamer";
             this.BankGamer.Size = new System.Drawing.Size(78, 26);
             this.BankGamer.TabIndex = 38;
@@ -204,7 +206,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 351);
+            this.label1.Location = new System.Drawing.Point(56, 365);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 17;
@@ -213,7 +215,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(154, 351);
+            this.label2.Location = new System.Drawing.Point(154, 365);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 18;
@@ -222,7 +224,7 @@
             // FoldBot
             // 
             this.FoldBot.AutoSize = true;
-            this.FoldBot.Location = new System.Drawing.Point(64, 38);
+            this.FoldBot.Location = new System.Drawing.Point(67, 13);
             this.FoldBot.Name = "FoldBot";
             this.FoldBot.Size = new System.Drawing.Size(27, 13);
             this.FoldBot.TabIndex = 19;
@@ -231,7 +233,7 @@
             // CheckBot
             // 
             this.CheckBot.AutoSize = true;
-            this.CheckBot.Location = new System.Drawing.Point(118, 38);
+            this.CheckBot.Location = new System.Drawing.Point(121, 13);
             this.CheckBot.Name = "CheckBot";
             this.CheckBot.Size = new System.Drawing.Size(38, 13);
             this.CheckBot.TabIndex = 20;
@@ -240,7 +242,7 @@
             // RiseBot
             // 
             this.RiseBot.AutoSize = true;
-            this.RiseBot.Location = new System.Drawing.Point(172, 38);
+            this.RiseBot.Location = new System.Drawing.Point(175, 13);
             this.RiseBot.Name = "RiseBot";
             this.RiseBot.Size = new System.Drawing.Size(28, 13);
             this.RiseBot.TabIndex = 21;
@@ -267,7 +269,7 @@
             // AllRateTable
             // 
             this.AllRateTable.AutoSize = true;
-            this.AllRateTable.Location = new System.Drawing.Point(135, 242);
+            this.AllRateTable.Location = new System.Drawing.Point(124, 242);
             this.AllRateTable.Name = "AllRateTable";
             this.AllRateTable.Size = new System.Drawing.Size(13, 13);
             this.AllRateTable.TabIndex = 24;
@@ -276,7 +278,7 @@
             // RateGamerTable
             // 
             this.RateGamerTable.AutoSize = true;
-            this.RateGamerTable.Location = new System.Drawing.Point(226, 370);
+            this.RateGamerTable.Location = new System.Drawing.Point(102, 276);
             this.RateGamerTable.Name = "RateGamerTable";
             this.RateGamerTable.Size = new System.Drawing.Size(30, 13);
             this.RateGamerTable.TabIndex = 26;
@@ -285,7 +287,7 @@
             // RateGamerNumber
             // 
             this.RateGamerNumber.AutoSize = true;
-            this.RateGamerNumber.Location = new System.Drawing.Point(257, 370);
+            this.RateGamerNumber.Location = new System.Drawing.Point(133, 276);
             this.RateGamerNumber.Name = "RateGamerNumber";
             this.RateGamerNumber.Size = new System.Drawing.Size(13, 13);
             this.RateGamerNumber.TabIndex = 25;
@@ -293,7 +295,7 @@
             // 
             // RateHod
             // 
-            this.RateHod.Location = new System.Drawing.Point(43, 367);
+            this.RateHod.Location = new System.Drawing.Point(43, 381);
             this.RateHod.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -310,7 +312,7 @@
             // 
             // Botrise
             // 
-            this.Botrise.Location = new System.Drawing.Point(173, 69);
+            this.Botrise.Location = new System.Drawing.Point(176, 44);
             this.Botrise.Name = "Botrise";
             this.Botrise.Size = new System.Drawing.Size(62, 27);
             this.Botrise.TabIndex = 30;
@@ -320,7 +322,7 @@
             // 
             // Botcheck
             // 
-            this.Botcheck.Location = new System.Drawing.Point(105, 69);
+            this.Botcheck.Location = new System.Drawing.Point(108, 44);
             this.Botcheck.Name = "Botcheck";
             this.Botcheck.Size = new System.Drawing.Size(62, 27);
             this.Botcheck.TabIndex = 29;
@@ -330,7 +332,7 @@
             // 
             // Botfold
             // 
-            this.Botfold.Location = new System.Drawing.Point(32, 69);
+            this.Botfold.Location = new System.Drawing.Point(35, 44);
             this.Botfold.Name = "Botfold";
             this.Botfold.Size = new System.Drawing.Size(67, 27);
             this.Botfold.TabIndex = 28;
@@ -432,11 +434,31 @@
             this.PowerGamerLabel.TabIndex = 45;
             this.PowerGamerLabel.Text = "0";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(116, 74);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 13);
+            this.label7.TabIndex = 47;
+            this.label7.Text = "Rate";
+            // 
+            // RateBotNumber
+            // 
+            this.RateBotNumber.AutoSize = true;
+            this.RateBotNumber.Location = new System.Drawing.Point(147, 74);
+            this.RateBotNumber.Name = "RateBotNumber";
+            this.RateBotNumber.Size = new System.Drawing.Size(13, 13);
+            this.RateBotNumber.TabIndex = 46;
+            this.RateBotNumber.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(441, 413);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.RateBotNumber);
             this.Controls.Add(this.PowerGamerLabel);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.PowerBotLabel);
@@ -529,6 +551,8 @@
         private System.Windows.Forms.Label PowerBotLabel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label PowerGamerLabel;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label RateBotNumber;
     }
 }
 

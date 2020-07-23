@@ -81,7 +81,7 @@ namespace PokerTest
             {
                 this.Invoke(new Action(GamerVisualUpdate));
                 this.Invoke(new Action(BotVisualUpdate));
-                Thread.Sleep(500);  
+                Thread.Sleep(200);  
             }
             
         }
@@ -135,7 +135,14 @@ namespace PokerTest
             //Визуализция сил бота и игрока
             PowerBotLabel.Text = hod.powerBot.ToString();
             PowerGamerLabel.Text = hod.powerGamer.ToString();
-            
+            //Визуализация общей ставки
+            AllRateTable.Text = hod.allRate.ToString();
+            //Визуализация ставки игрока
+            RateGamerNumber.Text = hod.RateGamer.ToString();
+            //Визуализация ставки бота
+            RateBotNumber.Text = hod.RateBot.ToString();
+
+
         }
         public void Power()
         {
