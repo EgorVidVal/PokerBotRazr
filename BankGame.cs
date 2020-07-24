@@ -8,13 +8,18 @@ namespace PokerTest
 {
     public class BankGame
     {
-        public int BankBot { get; set; } = 1000;
-        public int BanGamer { get; set; } = 1000;
 
-        public void start()
+        public void FirstPart(ref int oneGamer, ref int twoGamer, ref int oneGamerRate, ref int twoGamerRate, ref int bankOne, ref int bankTwo)
         {
-          
+            oneGamerRate = 5;
+            bankOne -= 5;
+
+            twoGamerRate = 10;
+            bankTwo -= 10;
+            twoGamer = 3;
         }
+
+
     }
 }
   

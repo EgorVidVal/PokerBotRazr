@@ -20,6 +20,32 @@ namespace PokerTest
         {
             await Task.Run(() => HodGame(count));                  
         }
+        
+        bool firstRate = false;
+        bool oneHodFirst = true;
+
+        //Делает первоначальную ставку на префлопе
+        public void FirstPart(ref int oneGamer, ref int twoGamer, ref int oneGamerRate, ref int twoGamerRate, ref int bankOne,ref int bankTwo)
+        {
+            oneGamerRate = 5;
+            bankOne -= 5;
+
+            twoGamerRate = 10;
+            bankTwo -= 10;
+            twoGamer = 3;
+
+            firstRate = true;
+            oneHodFirst = false;
+        }
+        //Для того чтобы небыло конфликтов на первоначальной ставке
+        public void FirstPartEnd()
+        {
+            if (firstRate == true && count == 0 &&  HodGamer != 0)
+            {
+                BotHod = 0;
+                firstRate = false;
+            }
+        }
 
         public void HodGame(Count count)
         {  
@@ -29,6 +55,9 @@ namespace PokerTest
                 switch (count)
                 {
                     case Count.Preflop:
+                        //В зависимости от того, кто ходит назначает первоначальную ставку
+                        if (Who == 0 && oneHodFirst == true) FirstPart(ref HodGamer,ref BotHod, ref RateGamer, ref RateBot, ref BankGamer, ref bankBot);
+                        if (Who == 1 && oneHodFirst == true) FirstPart(ref BotHod, ref HodGamer, ref RateBot, ref RateGamer, ref bankBot, ref BankGamer);
                         GameStart();
                         break;
                     case Count.Flop:
@@ -44,44 +73,22 @@ namespace PokerTest
             }
         }
         //Для первой ставки
-        bool firstRate = true;
-
+        
         public void GameStart()
         {
             
             if (Who == (int)WhoGoes.gamer)
             {
-                if (firstRate == true && count == 0)
-                {
-                    //Who = (int)WhoGoes.bot;
-                    BankGamer -= 5;
-                    bankBot -= 10;
-                    
-                    RateBot = 10;
-                    RateGamer = 5;
-                    
-                    BotHod = 3;
-                    firstRate = false;
-                }
+              
+               
                 GameRes(ref HodGamer, ref BotHod,ref powerGamer,ref powerBot);
                 
              
             }
             else if (Who == (int)WhoGoes.bot)
             {
-                if (firstRate == true && count == 0)
-                {
-                    //Who = (int)WhoGoes.gamer;
-                    BankGamer -= 10;
-                    bankBot -= 5;
 
-                    RateBot = 5;
-                    RateGamer = 10;
-                    firstRate = false;
-                    HodGamer = 3;
-                }
                 GameRes(ref BotHod, ref HodGamer, ref powerBot, ref powerGamer);
-        
             }
         }
 
@@ -90,8 +97,13 @@ namespace PokerTest
         {
             while (true)
             {
+                
                 Thread.Sleep(200);
-                if(GameWho == 0 && gamerOne != 0)
+                //Чтобы первоначальная ставка прошла без лагов
+                
+                FirstPartEnd();
+
+                if (GameWho == 0 && gamerOne != 0)
                 {
                     if (gamerOne == 1)
                     {
@@ -144,68 +156,7 @@ namespace PokerTest
 
                 }
                 powerBot = new ReadyPower(mapBot.Concat(mapTable).ToArray()).CombPower();
-                powerGamer = new ReadyPower(mapGamer.Concat(mapTable).ToArray()).CombPower();
-              
-
-                //if (gamerOne != 0)
-                //{
-                //    if(gamerOne == 1)
-                //    {
-                //        powerGamerOne = 0;
-                //        count = 4;
-                //        gamerOne = 0; gamerTwo = 0;
-                //        allRate += RateBot + RateGamer;
-                //        break;
-                //    }
-
-
-                //    if (Who == (int)WhoGoes.gamer)
-                //    {
-                //        //gamerTwo = b.BotStart(HodGamer);
-                //    }
-                //    if (gamerTwo != 0)
-                //    {
-                //        if (gamerTwo == 1)
-                //        {
-                //            powerGamerTwo = 0;
-                //            count = 4;
-                //            gamerOne = 0; gamerTwo = 0;
-                //            allRate += RateBot + RateGamer;
-                //            break;
-                //        }
-
-                //        //Проверяем продожитсья ли игра после решения.
-                //        bool checking = GameHod(ref gamerOne,ref gamerTwo);
-
-                //        //Если условия верны для продолжение игры
-                //        if (checking == true)
-                //        {
-                //            Console.WriteLine("Все ок получилось");
-
-                //            //Складываем все ставки и добавляем в общие
-                //            //преходим на следующий шаг
-                //            if (Who == 1) Who = 0; else Who = 1;
-                //            gamerOne = 0; gamerTwo = 0;
-                //            count++;
-
-                //            allRate += RateBot + RateGamer;
-                //            RateGamer = 0;
-                //            RateBot = 0;
-
-                //            break;
-                //        }
-                //        else
-                //        {
-                //            Console.WriteLine("Не получилось");
-                //            gamerOne = 0;
-                //            if (Who == (int)WhoGoes.bot) Who = (int)WhoGoes.gamer; else Who = (int)WhoGoes.bot;
-                //            //Если условия не удволетворяют для продолжение игры то, мы меняем
-                //            GameStart();
-                //        }
-                //    }
-                //}
-
-
+                powerGamer = new ReadyPower(mapGamer.Concat(mapTable).ToArray()).CombPower();      
             }
         }
 
@@ -242,8 +193,6 @@ namespace PokerTest
             firstRate = true;
             if (count == 4)
             {
-                
-
                 if (Bot > Gamer)
                 {
                     bankBot += allRate;
@@ -260,8 +209,6 @@ namespace PokerTest
                     BankGamer += allRate;
                     return "Выиграл игрок";
                 }
-
-
             }
             return "";
            

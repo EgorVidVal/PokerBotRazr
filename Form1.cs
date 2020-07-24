@@ -22,9 +22,6 @@ namespace PokerTest
         //Ход игры
         Hod hod = new Hod();
 
-        
-        
-
         public Form1() => InitializeComponent();
 
         private void Rise_Click(object sender, EventArgs e)
@@ -33,7 +30,7 @@ namespace PokerTest
             {
                 hod.GameWho = 1;
                 hod.HodGamer = 3;
-                hod.BankGamer = hod.BankGamer - (int)RateHod.Value;
+                hod.BankGamer -=  (int)RateHod.Value - hod.RateGamer ;
                 hod.RateGamer = (int)RateHod.Value;
                 WindowsEvent.Text += $"Рейз игрок {hod.RateGamer}";
             }
@@ -46,8 +43,9 @@ namespace PokerTest
            
             hod.HodGamer = 2;
             hod.GameWho = 1;
-            if (Check.Text == $"Koll {hod.RateBot}")
+            if (Check.Text == $"Koll {hod.RateBot - hod.RateGamer}")
             {
+                Console.WriteLine("Ход {0}", hod.RateBot - hod.RateGamer);
                 hod.BankGamer -= hod.RateBot - hod.RateGamer;
                 hod.RateGamer = hod.RateBot;
             }
@@ -179,7 +177,7 @@ namespace PokerTest
         {
             hod.GameWho = 0;
             hod.BotHod = 3;
-            hod.bankBot = hod.bankBot - (int)RateVisualBot.Value;
+            hod.bankBot = (int)RateVisualBot.Value - hod.RateBot;
             hod.RateBot = (int)RateVisualBot.Value;
         }
 
